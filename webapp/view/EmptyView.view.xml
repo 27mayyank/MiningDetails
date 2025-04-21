@@ -3,6 +3,6 @@
     xmlns="sap.m"
     xmlns:f="sap.ui.layout.form">
 <Page id="idEmpty" >
-        <Image src="https://cdn.pixabay.com/photo/2016/10/12/23/23/mining-excavator-1736293_1280.jpg" width="100%" height="100%"></Image>
+        <Image src="https://media.giphy.com/media/Qx2MBXsJZ8YaQ/giphy.gif" width="100%" height="98%"></Image>
 	</Page>
 </mvc:View>

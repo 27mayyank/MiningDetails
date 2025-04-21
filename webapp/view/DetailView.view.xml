@@ -7,17 +7,6 @@
         <content>
             <f:SimpleForm>
                 <Label text="Location Id"></Label>
-                <Text text="{MiningDataSet>LocationId}"></Text>
-                <Label text="Location Description"></Label>
-                <Text text="{MiningDataSet>LocationDescription}"></Text>
-                <Label text="Mining Resource Allocated"></Label>
-                <Text text="{MiningDataSet>MiningResourceAllocated}"></Text>
-            </f:SimpleForm>
-            <IconTabBar >
-                <items>
-                <IconTabFilter icon="sap-icon://information">
-                    <f:SimpleForm>
-                                <Label text="Location Id"></Label>
                                 <Text text="{MiningDataSet>LocationId}"></Text>
                                 <Label text="Location Description"></Label>
                                 <Text text="{MiningDataSet>LocationDescription}"></Text>
@@ -31,52 +20,13 @@
                                 <Text text="{MiningDataSet>TypeOfMineral}"></Text>
                                 <Label text="Number Of Drills"></Label>
                                 <Text text="{MiningDataSet>NumberOfDrills}"></Text>
-                    </f:SimpleForm>
-                </IconTabFilter>
-                 
-                
-                <IconTabFilter icon="sap-icon://table-view">
-                         <Table items="{MiningDataSet>/}" id="idTab2">
-                <columns>
-                    <Column>
-                        <Text text="{i18n>LocationId}"></Text>
-                    </Column>
-                    <Column>
-                        <Text text="{i18n>LocationDescription}"></Text>
-                    </Column>
-                    <Column>
-                        <Text text="{i18n>MiningResourceAllocated}"></Text>
-                    </Column>
-                    <Column>
-                        <Text text="{i18n>TotalCost}"></Text>
-                    </Column>
-                    <Column>
-                        <Text text="{i18n>ReportOfPossibleMineral}"></Text>
-                    </Column>
-                    <Column>
-                        <Text text="{i18n>NumberOfDrills}"></Text>
-                    </Column>
-                    <Column>
-                        <Text text="{i18n>TypeOfMineral}"></Text>
-                    </Column>
-                </columns>
-                <ColumnListItem>
-                    <cells>
-                        <Text text="{MiningDataSet>LocationId}"></Text>
-                        <Text text="{MiningDataSet>LocationDescription}"></Text>
-                        <!-- <Text text="{MiningDataSet>MiningResourceAllocated}" ></Text> -->
-                        <Input value="{MiningDataSet>MiningResourceAllocated}" showValueHelp="true" valueHelpRequest="onF4Help"> </Input>
-                        <Text text="{MiningDataSet>TotalCost}"></Text>
-                        <Text text="{MiningDataSet>ReportOfPossibleMineral}"></Text>
-                        <Text text="{MiningDataSet>NumberOfDrills}"></Text>
-                        <Text text="{MiningDataSet>TypeOfMineral}"></Text>
-                    </cells>
-                </ColumnListItem>
-            </Table>
-                
-                </IconTabFilter>
-                </items>
-            </IconTabBar>
+            </f:SimpleForm>
         </content>
+        <footer>
+			<OverflowToolbar>
+				<ToolbarSpacer/>	
+				<Button text="EDIT"  press="onEDIT" type="Attention"   />
+			</OverflowToolbar>
+		</footer>
     </Page>
 </mvc:View>

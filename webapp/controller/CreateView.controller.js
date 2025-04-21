@@ -63,7 +63,7 @@ sap.ui.define([
         },
         onPressButton: function(){
             let oRouter = this.getOwnerComponent().getRouter();
-            oRouter.navTo("RouteCrudView");
+            oRouter.navTo("RouteMasterView");
         }
     });
 });

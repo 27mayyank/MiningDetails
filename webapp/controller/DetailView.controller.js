@@ -82,6 +82,18 @@ sap.ui.define([
             let sValue = oSelectedItems.getProperty("info");
             let onInput = sap.ui.getCore().byId(this.inputField);
             onInput.setValue(sValue);
+        },
+        onEDIT: function(oEvent){
+          var oButton = oEvent.getSource(); // Get the button that was clicked
+          var oContext = oButton.getBindingContext("MiningDataSet"); // Get the binding context of the button
+          var sPath = oContext.getPath(); // Get the path of the context
+          let aItems = sPath.split("/");
+          let id = aItems[aItems.length - 1];
+
+          let oRouter = this.getOwnerComponent().getRouter();
+          oRouter.navTo("RouteUpdateView", {
+              index: id
+          });
         }
           
     });

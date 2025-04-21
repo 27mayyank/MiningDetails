@@ -18,7 +18,7 @@
             <Input id="id6"></Input>
             <Label text="{i18n>TypeOfMineral}" ></Label>
             <Input id="id7" ></Input>
-            <Button text="{i18n>submit}" press="onSubmit" width="250px"></Button>
+            <Button text="{i18n>submit}" press="onSubmit" width="250px" type="Accept"></Button>
  
         </f:SimpleForm>
     </Page>

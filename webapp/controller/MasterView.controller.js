@@ -35,7 +35,7 @@ sap.ui.define([
         },
         onFormView: function () {
             let oRouter = this.getOwnerComponent().getRouter();
-            oRouter.navTo("RouteCrudView");
+            oRouter.navTo("RouteCreateView");
         },
         onItemSelect: function(oEvent){
             var oList=oEvent.getParameter("listItem");
@@ -71,6 +71,46 @@ sap.ui.define([
             var oBinding = oList.getBinding("items");
             oBinding.sort(oSorter);
             this.bDescending = !this.bDescending;
+        },
+        onDeleteItem: function(oEvent){
+
+            let oContext = oEvent.getSource().getBindingContext("MiningDataSet").getObject()
+            let that = this
+            MessageBox.confirm("Are you sure about deleting this Entry", {
+                onClose: function (choice) {
+                    if (choice === 'OK') {
+                        this._onDeleteCall(oContext)
+                    }
+                }.bind(that)
+            })
+        },
+        _onDeleteCall: function (parm) {
+            let key1 = parm.LocationId
+            var key2 = parm.LocationDescription
+            let key3 = parm.MiningResourceAllocated
+            key2 = key2.replace(/ /g, "%20")
+
+            let oModel = this.getOwnerComponent().getModel()
+            let entity = "/ZMD_MININGSet(LocationId='" + key1 + "',LocationDescription='" + key2 + "',MiningResourceAllocated='" + key3 + "')"
+            //"http://zin-blr-srv1:8001/sap/opu/odata/sap/ZAAKA_MININGDETAILS_SRV/MiningDataSet(LocationId='203',LocationDescription='RUBY%20HILLS',MineralResource='SILVER')"
+
+            oModel.remove(entity, {
+                success: (resp) => {
+                    MessageBox.success("Deleted Successfully", {
+                        onClose: function () {
+                            this._getData()
+                        }.bind(this)
+                    })
+                },
+                error: (error) => {
+                    MessageBox.error("Deletion Failed")
+                }
+            })
+
+        },
+        onTableView: function(){
+            let oRouter = this.getOwnerComponent().getRouter();
+            oRouter.navTo("RouteCrudView");
         }
     });
 });

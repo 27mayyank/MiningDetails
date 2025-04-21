@@ -19,6 +19,7 @@ sap.ui.define([
                 success: (oData, response) => {
                     var oModelData = new sap.ui.model.json.JSONModel(oData.results);
                     this.getView().setModel(oModelData, "MiningDataSet");
+                    this.onFilter;
                 },
                 error: () => { }
             })

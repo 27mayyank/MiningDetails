@@ -38,7 +38,7 @@ sap.ui.define([
         },
         onNavUP: function(){
             let oRouter = this.getOwnerComponent().getRouter();
-            oRouter.navTo("RouteCrudView");
+            oRouter.navTo("RouteMasterView");
         },
         onUpdate: function(oEvent) {
             let oContext = oEvent.getSource().getBindingContext("MiningDataSet").getObject();
@@ -69,7 +69,7 @@ sap.ui.define([
                     MessageBox.success("Record Updated", {
                         onClose: function() {
                             var oRouter = this.getOwnerComponent().getRouter();
-                            oRouter.navTo("RouteCrudView", {}, true);
+                            oRouter.navTo("RouteMasterView", {}, true);
                         }.bind(this)
                     });
                 },

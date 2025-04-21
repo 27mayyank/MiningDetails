@@ -1,0 +1,25 @@
+<mvc:View controllerName="app.mayank55.controller.UpdateView"
+    xmlns:mvc="sap.ui.core.mvc"
+    xmlns="sap.m"
+    xmlns:f="sap.ui.layout.form">
+    <Page id="idUpdate" title="{i18n>Updatetitle}" showNavButton="true" navButtonPress="onNavUP">
+        <f:SimpleForm editable="true" >
+            <Label text="{i18n>LocationId}" required="true" ></Label>
+            <Input id="id1" enabled="false" value="{MiningDataSet>LocationId}"></Input>
+            <Label text="{i18n>LocationDescription}" required="true"></Label>
+            <Input id="id2" enabled="false" value="{MiningDataSet>LocationDescription}"></Input>
+            <Label text="{i18n>MiningResourceAllocated}" required="true"></Label>
+            <Input id="id3" enabled="false" value="{MiningDataSet>MiningResourceAllocated}"></Input>
+            <Label text="{i18n>TotalCost}" ></Label>
+            <Input id="id4" value="{MiningDataSet>TotalCost}"></Input>
+            <Label text="{i18n>ReportOfPossibleMineral}"></Label>
+            <Input id="id5" value="{MiningDataSet>ReportOfPossibleMineral}"></Input>
+            <Label text="{i18n>NumberOfDrills}" ></Label>
+            <Input id="id6" value="{MiningDataSet>NumberOfDrills}"></Input>
+            <Label text="{i18n>TypeOfMineral}" ></Label>
+            <Input id="id7" value="{MiningDataSet>TypeOfMineral}"></Input>
+            <Button text="{i18n>update}" press="onUpdate" width="250px"></Button>
+
+        </f:SimpleForm>
+    </Page>
+</mvc:View>

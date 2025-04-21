@@ -1,0 +1,82 @@
+<mvc:View controllerName="app.mayank55.controller.DetailView"
+    xmlns:mvc="sap.ui.core.mvc"
+    xmlns="sap.m"
+    xmlns:f="sap.ui.layout.form"
+    xmlns:comp="sap.ui.comp.filterbar">
+    <Page id="idDetail" title="Detail View" showNavButton="true" navButtonPress="onListView">
+        <content>
+            <f:SimpleForm>
+                <Label text="Location Id"></Label>
+                <Text text="{MiningDataSet>LocationId}"></Text>
+                <Label text="Location Description"></Label>
+                <Text text="{MiningDataSet>LocationDescription}"></Text>
+                <Label text="Mining Resource Allocated"></Label>
+                <Text text="{MiningDataSet>MiningResourceAllocated}"></Text>
+            </f:SimpleForm>
+            <IconTabBar >
+                <items>
+                <IconTabFilter icon="sap-icon://information">
+                    <f:SimpleForm>
+                                <Label text="Location Id"></Label>
+                                <Text text="{MiningDataSet>LocationId}"></Text>
+                                <Label text="Location Description"></Label>
+                                <Text text="{MiningDataSet>LocationDescription}"></Text>
+                                <Label text="Mining Resource Allocated"></Label>
+                                <Text text="{MiningDataSet>MiningResourceAllocated}"></Text>
+                                <Label text="Total Cost"></Label>
+                                <Text text="{MiningDataSet>TotalCost}"></Text>
+                                <Label text="Report Of Possible Mineral"></Label>
+                                <Text text="{MiningDataSet>ReportOfPossibleMineral}"></Text>
+                                 <Label text="Type Of Mineral"></Label>
+                                <Text text="{MiningDataSet>TypeOfMineral}"></Text>
+                                <Label text="Number Of Drills"></Label>
+                                <Text text="{MiningDataSet>NumberOfDrills}"></Text>
+                    </f:SimpleForm>
+                </IconTabFilter>
+                 
+                
+                <IconTabFilter icon="sap-icon://table-view">
+                         <Table items="{MiningDataSet>/}" id="idTab2">
+                <columns>
+                    <Column>
+                        <Text text="{i18n>LocationId}"></Text>
+                    </Column>
+                    <Column>
+                        <Text text="{i18n>LocationDescription}"></Text>
+                    </Column>
+                    <Column>
+                        <Text text="{i18n>MiningResourceAllocated}"></Text>
+                    </Column>
+                    <Column>
+                        <Text text="{i18n>TotalCost}"></Text>
+                    </Column>
+                    <Column>
+                        <Text text="{i18n>ReportOfPossibleMineral}"></Text>
+                    </Column>
+                    <Column>
+                        <Text text="{i18n>NumberOfDrills}"></Text>
+                    </Column>
+                    <Column>
+                        <Text text="{i18n>TypeOfMineral}"></Text>
+                    </Column>
+                </columns>
+                <ColumnListItem>
+                    <cells>
+                        <Text text="{MiningDataSet>LocationId}"></Text>
+                        <Text text="{MiningDataSet>LocationDescription}"></Text>
+                        <!-- <Text text="{MiningDataSet>MiningResourceAllocated}" ></Text> -->
+                        <Input value="{MiningDataSet>MiningResourceAllocated}" showValueHelp="true" valueHelpRequest="onF4Help"> </Input>
+                        <Text text="{MiningDataSet>TotalCost}"></Text>
+                        <Text text="{MiningDataSet>ReportOfPossibleMineral}"></Text>
+                        <Text text="{MiningDataSet>NumberOfDrills}"></Text>
+                        <Text text="{MiningDataSet>TypeOfMineral}"></Text>
+                    </cells>
+                </ColumnListItem>
+            </Table>
+                
+                </IconTabFilter>
+                </items>
+            </IconTabBar>
+        </content>
+    </Page>
+</mvc:View>

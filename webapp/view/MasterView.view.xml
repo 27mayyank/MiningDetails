@@ -1,0 +1,27 @@
+<mvc:View controllerName="app.mayank55.controller.MasterView"
+    xmlns:mvc="sap.ui.core.mvc"
+    xmlns="sap.m"
+    xmlns:core="sap.ui.core">
+    <Page id="page" title="{i18n>title}" >
+		<subHeader>
+			<OverflowToolbar>
+				<SearchField search="onSearch" liveChange="onSearch"/>
+			</OverflowToolbar>
+		</subHeader>
+        <content>
+            <List id="list" items="{MiningDataSet>/}" mode="SingleSelectMaster" selectionChange="onItemSelect">
+               <items>
+					<ObjectListItem  intro="{MiningDataSet>LocationId}" >
+                    <ObjectAttribute title="Location Description"    text="{MiningDataSet>LocationDescription}" ></ObjectAttribute>
+					</ObjectListItem>
+				</items>
+            </List>
+        </content>
+        <footer>
+			<OverflowToolbar>
+				<ToolbarSpacer/>	
+				<Button text="CRUD OPERATIONS"  press="onFormView"/>
+			</OverflowToolbar>
+		</footer>
+    </Page>
+</mvc:View>

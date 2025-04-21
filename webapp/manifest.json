@@ -1,0 +1,194 @@
+{
+  "_version": "1.65.0",
+  "sap.app": {
+    "id": "app.mayank55",
+    "type": "application",
+    "i18n": "i18n/i18n.properties",
+    "applicationVersion": {
+      "version": "0.0.1"
+    },
+    "title": "{{appTitle}}",
+    "description": "{{appDescription}}",
+    "resources": "resources.json",
+    "sourceTemplate": {
+      "id": "@sap/generator-fiori:basic",
+      "version": "1.17.3",
+      "toolsId": "97b9fb70-6fb8-4633-a30a-69a46e65442a"
+    },
+    "dataSources": {
+      "mainService": {
+        "uri": "/sap/opu/odata/sap/ZMD_MINING_UI5_SRV/",
+        "type": "OData",
+        "settings": {
+          "annotations": [],
+          "localUri": "localService/mainService/metadata.xml",
+          "odataVersion": "2.0"
+        }
+      }
+    },
+    "crossNavigation": {
+      "inbounds": {
+        "miningdata-create": {
+          "semanticObject": "miningdata",
+          "action": "create",
+          "title": "{{miningdata-create.flpTitle}}",
+          "subTitle": "{{miningdata-create.flpSubtitle}}",
+          "signature": {
+            "parameters": {},
+            "additionalParameters": "allowed"
+          }
+        }
+      }
+    }
+  },
+  "sap.ui": {
+    "technology": "UI5",
+    "icons": {
+      "icon": "",
+      "favIcon": "",
+      "phone": "",
+      "phone@2": "",
+      "tablet": "",
+      "tablet@2": ""
+    },
+    "deviceTypes": {
+      "desktop": true,
+      "tablet": true,
+      "phone": true
+    }
+  },
+  "sap.ui5": {
+    "flexEnabled": true,
+    "dependencies": {
+      "minUI5Version": "1.134.1",
+      "libs": {
+        "sap.m": {},
+        "sap.ui.core": {}
+      }
+    },
+    "contentDensities": {
+      "compact": true,
+      "cozy": true
+    },
+    "models": {
+      "i18n": {
+        "type": "sap.ui.model.resource.ResourceModel",
+        "settings": {
+          "bundleName": "app.mayank55.i18n.i18n"
+        }
+      },
+      "": {
+        "dataSource": "mainService",
+        "preload": true,
+        "settings": {}
+      }
+    },
+    "resources": {
+      "css": [
+        {
+          "uri": "css/style.css"
+        }
+      ]
+    },
+    "routing": {
+      "config": {
+        "routerClass": "sap.m.routing.Router",
+        "controlAggregation": "pages",
+        "controlId": "app",
+        "transition": "slide",
+        "type": "View",
+        "viewType": "XML",
+        "path": "app.mayank55.view",
+        "async": true,
+        "viewPath": "app.mayank55.view"
+      },
+      "routes": [
+        {
+          "name": "RouteMasterView",
+          "pattern": ":?query:",
+          "target": [
+            "TargetMasterView", "TargetEmpty"
+          ]
+        },
+        {
+          "name": "RouteCrudView",
+          "pattern": "crud",
+          "target": [
+            "TargetCrudView"
+          ]
+        },
+        {
+          "name": "RouteCreateView",
+          "pattern": "create",
+          "target": [
+            "TargetCreateView"
+          ]
+        },
+        {
+          "name": "RouteUpdateView",
+          "pattern": "updateview/{index}",
+          "target": [
+            "TargetUpdateView"
+          ]
+        },
+        {
+          "name": "RouteDetailView",
+          "pattern": "view/{index}",
+          "target": [
+            "TargetDetailView"
+          ]
+        }
+        
+      ],
+      "targets": {
+        "TargetMasterView": {
+          "id": "MasterView",
+          "name": "MasterView",
+          "controlAggregation": "masterPages",
+          "viewLevel":1
+        },
+        "TargetEmpty": {
+          "id": "idEmpty",
+          "name": "EmptyView",
+          "controlAggregation": "detailPages",
+          "viewLevel":1
+        },
+        "TargetCrudView":{
+          "id": "CrudView",
+          "name": "CrudView",
+          "transition":"slide",
+          "controlAggregation": "detailPages",
+          "viewLevel":2
+        },
+        "TargetCreateView": {
+        "id": "idCreate",
+        "name": "CreateView",
+        "controlAggregation": "detailPages",
+          "viewLevel":2
+      },
+      "TargetUpdateView": {
+        "id": "idUpdate",
+        "name": "UpdateView",
+        "controlAggregation": "detailPages",
+          "viewLevel":2
+      },
+      "TargetDetailView": {
+        "id": "idDetail",
+        "name": "DetailView",
+        "controlAggregation": "detailPages",
+          "viewLevel":2
+      }
+      }
+    },
+    "rootView": {
+      "viewName": "app.mayank55.view.App",
+      "type": "XML",
+      "id": "App",
+      "async": true
+    }
+  },
+  "sap.cloud": {
+    "public": true,
+    "service": "appmayank55"
+  }
+}

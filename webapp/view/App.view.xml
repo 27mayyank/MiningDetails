@@ -1,0 +1,7 @@
+<mvc:View controllerName="app.mayank55.controller.App"
+    displayBlock="true"
+    xmlns:mvc="sap.ui.core.mvc"
+    xmlns="sap.m">
+    <SplitApp id="app">
+    </SplitApp>
+</mvc:View>

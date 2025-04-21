@@ -1,0 +1,76 @@
+<mvc:View controllerName="app.mayank55.controller.CrudView"
+    xmlns:mvc="sap.ui.core.mvc"
+    xmlns="sap.m"
+    xmlns:comp="sap.ui.comp.filterbar">
+    <Page id="CrudView" title="{i18n>title}" showNavButton="true" navButtonPress="onRevert" >
+        <content>
+            <comp:FilterBar>
+                <comp:filterItems>
+                    <comp:FilterItem name="Location ID" label="Filter Location ID">
+                        <comp:control>
+                            <Label text="Location ID"></Label>
+                            <Input id="idLID" placeholder="Enter Location ID" liveChange="onSearch"></Input>
+                        </comp:control>
+                    </comp:FilterItem>
+                    <comp:FilterItem name="Location Description" label="Filter Location Description">
+                        <comp:control>
+                            <Label text="Location Description"></Label>
+                            <Input id="idLDesc" placeholder="Enter Location Description" liveChange="onSearch"></Input>
+                        </comp:control>
+                    </comp:FilterItem>
+                </comp:filterItems>
+            </comp:FilterBar>
+            <Table id="idTab" items="{MiningDataSet>/}" mode="SingleSelectMaster" selectionChange="onDetailCrud">
+                <columns>
+                    <Column>
+                        <Text text="{i18n>LocationId}"></Text>
+                    </Column>
+                    <Column>
+                        <Text text="{i18n>LocationDescription}"></Text>
+                    </Column>
+                    <Column>
+                        <Text text="{i18n>MiningResourceAllocated}"></Text>
+                    </Column>
+                    <Column>
+                        <Text text="{i18n>TotalCost}"></Text>
+                    </Column>
+                    <Column>
+                        <Text text="{i18n>ReportOfPossibleMineral}"></Text>
+                    </Column>
+                    <Column>
+                        <Text text="{i18n>NumberOfDrills}"></Text>
+                    </Column>
+                    <Column>
+                        <Text text="{i18n>TypeOfMineral}"></Text>
+                    </Column>
+                    <Column>
+                        <Text text="{i18n>Action}"></Text>
+                    </Column>
+                    <Column>
+                        <Text text="{i18n>Update}"></Text>
+                    </Column>
+                </columns>
+                <ColumnListItem>
+                    <cells>
+                        <Text text="{MiningDataSet>LocationId}"></Text>
+                        <Text text="{MiningDataSet>LocationDescription}"></Text>
+                        <Text text="{MiningDataSet>MiningResourceAllocated}"></Text>
+                        <Text text="{MiningDataSet>TotalCost}"></Text>
+                        <Text text="{MiningDataSet>ReportOfPossibleMineral}"></Text>
+                        <Text text="{MiningDataSet>NumberOfDrills}"></Text>
+                        <Text text="{MiningDataSet>TypeOfMineral}"></Text>
+                        <Button icon="sap-icon://delete" press="onDelete"></Button>
+                        <Button icon="sap-icon://edit" press="onUpdate"></Button>
+                    </cells>
+                </ColumnListItem>
+            </Table>
+            
+        </content>
+        <footer>
+                <OverflowToolbar>
+                    <ToolbarSpacer />
+                    <Button text="{i18n>create}" press="onCreate" width="250px"></Button>
+                </OverflowToolbar>
+            </footer>
+    </Page>
+</mvc:View>

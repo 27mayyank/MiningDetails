@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="1.0" xmlns:edmx="http://schemas.microsoft.com/ado/2007/06/edmx" xmlns:m="http://schemas.microsoft.com/ado/2007/08/dataservices/metadata" xmlns:sap="http://www.sap.com/Protocols/SAPData">
+    <edmx:DataServices m:DataServiceVersion="2.0">
+        <Schema Namespace="ZMD_MINING_UI5_SRV" xml:lang="en" sap:schema-version="1" xmlns="http://schemas.microsoft.com/ado/2008/09/edm">
+            <EntityType Name="ZMD_MINING" sap:content-version="1">
+                <Key>
+                    <PropertyRef Name="LocationId"/>
+                    <PropertyRef Name="LocationDescription"/>
+                    <PropertyRef Name="MiningResourceAllocated"/>
+                </Key>
+                <Property Name="LocationId" Type="Edm.String" Nullable="false" MaxLength="10" sap:unicode="false" sap:label="LOCATION ID" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="LocationDescription" Type="Edm.String" Nullable="false" MaxLength="50" sap:unicode="false" sap:label="Z_LOC_DES" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="MiningResourceAllocated" Type="Edm.String" Nullable="false" MaxLength="20" sap:unicode="false" sap:label="Z_MIN_RESOURCE" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="TotalCost" Type="Edm.String" Nullable="false" MaxLength="20" sap:unicode="false" sap:label="Z_TOTAL_COST" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="ReportOfPossibleMineral" Type="Edm.String" Nullable="false" MaxLength="20" sap:unicode="false" sap:label="Z_MIN_RESOURCE" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="NumberOfDrills" Type="Edm.Int16" Nullable="false" sap:unicode="false" sap:label="Z_DRILL_COUNT" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="TypeOfMineral" Type="Edm.String" Nullable="false" MaxLength="20" sap:unicode="false" sap:label="Z_MINERAL_TYPE" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+            </EntityType>
+            <EntityContainer Name="ZMD_MINING_UI5_SRV_Entities" m:IsDefaultEntityContainer="true" sap:supported-formats="atom json xlsx">
+                <EntitySet Name="ZMD_MININGSet" EntityType="ZMD_MINING_UI5_SRV.ZMD_MINING" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:pageable="false" sap:content-version="1"/>
+            </EntityContainer>
+            <atom:link rel="self" href="http://zin-blr-srv1:8001/sap/opu/odata/sap/ZMD_MINING_UI5_SRV/$metadata" xmlns:atom="http://www.w3.org/2005/Atom"/>
+            <atom:link rel="latest-version" href="http://zin-blr-srv1:8001/sap/opu/odata/sap/ZMD_MINING_UI5_SRV/$metadata" xmlns:atom="http://www.w3.org/2005/Atom"/>
+        </Schema>
+    </edmx:DataServices>
+</edmx:Edmx>

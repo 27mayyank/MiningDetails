@@ -1,0 +1,9 @@
+<core:FragmentDefinition xmlns:core="sap.ui.core" xmlns="sap.m">
+ 
+    <SelectDialog title="Mineral Resource Allocated" items="{FragmentModel>/MiningDataSet}" confirm="onConfirmSupplier">
+        <items>
+            <StandardListItem info="{FragmentModel>MiningResourceAllocated}" >
+            </StandardListItem>
+        </items>
+    </SelectDialog>
+</core:FragmentDefinition>

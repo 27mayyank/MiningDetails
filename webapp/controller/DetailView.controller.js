@@ -43,26 +43,46 @@ sap.ui.define([
             let oRouter = this.getOwnerComponent().getRouter();
             oRouter.navTo("RouteMasterView");
         },
-        onF4Help: function(){
-            this.inputFiled=oEvent.getSource().getId()
-            let oModel=this.getView().getModel("MiningDataSet")
-            let aData=oModel.getProperty("/MiningResourceAllocated")
-            let deepCopy=JSON.parse(JSON.stringify(aData))
-            let oModelFrag=new JSONModel({newSuppSet:deepCopy})
-            if(!this.oDiolog){
-                this.oDiolog=Fragment.load({
-                    fragmentName:"app.mayank55.fragments.popUp",
-                    controller:this
-                }).then((dialog)=>{
-                    this.oDiolog=dialog
-                    this.getView().addDependent(this.oDiolog)
-                    this.getView().setModel(oModelFrag, "FragmentModel")
-                    this.oDiolog.open()
-                })
-            }else{
-                this.oDiolog.open()
-            }
-        }
+        onF4Help: function (oEvent) {
+            // let myInputField where the popup actually popped up
+            this.inputField = oEvent.getSource().getId();
+            let enititySet = `/ZMD_MININGSet`;
+            let oModel = this.getOwnerComponent().getModel();
+       
+            // Fetch data from OData model
+            oModel.read(enititySet, {
+              success: (oData) => {
+                let deepcopy = JSON.parse(JSON.stringify(oData.results));
+                let oModelFrag = new JSONModel({ newSupp: deepcopy });
+       
+                if (!this.oDialog) {
+                  this.oDialog = sap.ui.core.Fragment.load({
+                    fragmentName: "app.mayank55.fragments.popUp",
+                    controller: this
+                  }).then((dialog) => {
+                    this.oDialog = dialog;
+                    this.getView().addDependent(this.oDialog);
+                    this.getView().setModel(oModelFrag, "FragModel");
+                    this.oDialog.open();
+                  });
+                } else {
+                  this.oDialog.open();
+                }
+              },
+              error: (oError) => {
+                // Handle error
+                sap.m.MessageToast.show("Error fetching data");
+              }
+
+            });
+        },
+        onConfirmSupp: function (oEvent) {
  
+            let oSelectedItems = oEvent.getParameter("selectedItem");
+            let sValue = oSelectedItems.getProperty("info");
+            let onInput = sap.ui.getCore().byId(this.inputField);
+            onInput.setValue(sValue);
+        }
+          
     });
 });

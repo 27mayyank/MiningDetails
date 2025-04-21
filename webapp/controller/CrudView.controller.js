@@ -2,13 +2,15 @@ sap.ui.define([
     "sap/ui/core/mvc/Controller",
     "sap/ui/model/Filter",
     "sap/ui/model/FilterOperator",
-    "sap/m/MessageBox"
-], (Controller, Filter, FilterOperator, MessageBox) => {
+    "sap/m/MessageBox",
+    "sap/ui/model/Sorter"
+], (Controller, Filter, FilterOperator, MessageBox,Sorter) => {
     "use strict";
 
     return Controller.extend("app.mayank55.controller.CrudView", {
         onInit() {
             this._getData();
+            
         },
         _getData: function () {
             let enititySet = "/ZMD_MININGSet"
@@ -108,6 +110,16 @@ sap.ui.define([
             oRouter.navTo("RouteDetailView", {
                 index: id
             })
+        },
+        onFilter:function(){
+            if (!this.bDescending) {
+                this.bDescending = false;
+            }
+            var oSorter = new Sorter("LocationId", this.bDescending);
+            var oList = this.getView().byId("idTab");
+            var oBindList = oList.getBinding("items");
+            oBindList.sort(oSorter);
+            this.bDescending = !this.bDescending;
         }
     });
 });

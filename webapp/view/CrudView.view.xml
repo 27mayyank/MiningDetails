@@ -1,4 +1,4 @@
-<mvc:View controllerName="app.mayank55.controller.CrudView"
+<mvc:View xmlns:core="sap.ui.core" controllerName="app.mayank55.controller.CrudView"
     xmlns:mvc="sap.ui.core.mvc"
     xmlns="sap.m"
     xmlns:comp="sap.ui.comp.filterbar">
@@ -70,6 +70,7 @@
                 <OverflowToolbar>
                     <ToolbarSpacer />
                     <Button text="{i18n>create}" press="onCreate" width="250px"></Button>
+                     <Button icon="sap-icon://filter" press="onFilter"> </Button>
                 </OverflowToolbar>
             </footer>
     </Page>

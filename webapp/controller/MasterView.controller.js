@@ -2,8 +2,9 @@ sap.ui.define([
     "sap/ui/core/mvc/Controller",
     "sap/ui/model/Filter",
     "sap/ui/model/FilterOperator",
-    "sap/m/MessageBox"
-], (Controller, Filter, FilterOperator, MessageBox) => {
+    "sap/m/MessageBox",
+    "sap/ui/model/Sorter"
+], (Controller, Filter, FilterOperator, MessageBox, Sorter) => {
     "use strict";
  
     return Controller.extend("app.mayank55.controller.MasterView", {
@@ -47,8 +48,29 @@ sap.ui.define([
                 index:id
             })
         },
-        onSearch: function(){
-            
+        onSearch: function(oControlEvent){
+            var oSearchStr = oControlEvent.getParameter("query") || oControlEvent.getParameter("newValue");
+            var oName = new Filter("LocationId", FilterOperator.Contains, oSearchStr);
+            var oAvail = new Filter("LocationDescription", FilterOperator.Contains, oSearchStr);
+            var aFilter = [oName, oAvail];
+            var oMainFilter = new Filter({
+                filters: aFilter,
+                and: false
+            });
+            var oList = this.getView().byId("list");
+            var oBindList = oList.getBinding("items");
+            oBindList.filter(oMainFilter);
+        },
+        onFilter: function(){
+            if (!this.bDescending) {
+                this.bDescending = false;
+            }
+ 
+            var oSorter = new Sorter("LocationId", this.bDescending);
+            var oList = this.getView().byId("list");
+            var oBinding = oList.getBinding("items");
+            oBinding.sort(oSorter);
+            this.bDescending = !this.bDescending;
         }
     });
 });

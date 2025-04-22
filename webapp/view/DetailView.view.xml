@@ -25,7 +25,7 @@
         <footer>
 			<OverflowToolbar>
 				<ToolbarSpacer/>	
-				<Button text="EDIT"  press="onEDIT" type="Attention"   />
+				<Button text="EDIT"  press="onEDIT" type="Attention" icon="sap-icon://edit"  />
 			</OverflowToolbar>
 		</footer>
     </Page>

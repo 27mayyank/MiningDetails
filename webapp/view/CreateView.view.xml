@@ -5,7 +5,7 @@
     <Page id="idCreate" title="{i18n>Createtitle}" showNavButton="true" navButtonPress="onPressButton">
         <f:SimpleForm editable="true" >
             <Label text="{i18n>LocationId}" required="true"></Label>
-            <Input id="id1"></Input>
+            <Input id="id1" placeholder="EX: LOC001"></Input>
             <Label text="{i18n>LocationDescription}" required="true"></Label>
             <Input id="id2"></Input>
             <Label text="{i18n>MiningResourceAllocated}" required="true"></Label>
@@ -18,7 +18,7 @@
             <Input id="id6"></Input>
             <Label text="{i18n>TypeOfMineral}" ></Label>
             <Input id="id7" ></Input>
-            <Button text="{i18n>submit}" press="onSubmit" width="250px" type="Accept"></Button>
+            <Button text="{i18n>submit}" press="onSubmit" width="250px" type="Accept" icon="sap-icon://create"></Button>
  
         </f:SimpleForm>
     </Page>

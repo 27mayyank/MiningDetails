@@ -45,15 +45,21 @@ sap.ui.define([
             console.log("Context object:", oContext);
             this.onUpdateCall(oContext);
         },
+        
         onUpdateCall: function(parm) {
+            // Validation check
+            if (!parm.LocationId || !parm.LocationDescription || !parm.MiningResourceAllocated || !parm.TotalCost || !parm.ReportOfPossibleMineral || !parm.NumberOfDrills || !parm.TypeOfMineral) {
+                MessageBox.error("Please fill all the fields.");
+                return;
+            }
+        
             let key1 = parm.LocationId;
-            let key2 = parm.LocationDescription;
+            let key2 = parm.LocationDescription.replace(/ /g, "%20");
             let key3 = parm.MiningResourceAllocated;
-            key2 = key2.replace(/ /g, "%20");
-            var NumberOfDrills2=parseInt(parm.NumberOfDrills)
+            let NumberOfDrills2 = parseInt(parm.NumberOfDrills);
         
             let oModel = this.getOwnerComponent().getModel();
-            let entity = "/ZMD_MININGSet(LocationId='" + key1 + "',LocationDescription='" + key2 + "',MiningResourceAllocated='" + key3 + "')";
+            let entity = `/ZMD_MININGSet(LocationId='${key1}',LocationDescription='${key2}',MiningResourceAllocated='${key3}')`;
         
             let updatedData = {
                 TotalCost: parm.TotalCost,
@@ -78,6 +84,7 @@ sap.ui.define([
                 }
             });
         }
+        
         
     });
 });

@@ -30,7 +30,7 @@
         <footer>
 			<OverflowToolbar>
 				<ToolbarSpacer/>	
-				<Button text="CREATE" type="Accept" press="onFormView"/>
+				<Button text="CREATE" type="Accept" press="onFormView" icon="sap-icon://create-form"/>
 				<Button icon="sap-icon://table-view" type="Ghost" press="onTableView"/>
 			</OverflowToolbar>
 		</footer>

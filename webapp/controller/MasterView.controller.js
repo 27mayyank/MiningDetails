@@ -20,10 +20,19 @@ sap.ui.define([
         //     })
         // }
         onInit() {
-            this._getData();
+            let oRouter = this.getOwnerComponent().getRouter();
+            let oRoute = oRouter.getRoute("RouteMasterView");
+            oRoute.attachPatternMatched(this._onPatternMatched, this);
+           
         },
+ 
+        _onPatternMatched: function () {
+            this._getData();
+           
+        },
+ 
         _getData: function () {
-            let enititySet = "/ZMD_MININGSet"
+            let enititySet = '/ZMD_MININGSet';
             let oModel = this.getOwnerComponent().getModel();
             oModel.read(enititySet, {
                 success: (oData, response) => {

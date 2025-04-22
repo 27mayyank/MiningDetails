@@ -83,7 +83,8 @@ sap.ui.define([
                     MessageBox.error("Update failed");
                 }
             });
-        }
+        },
+        
         
         
     });

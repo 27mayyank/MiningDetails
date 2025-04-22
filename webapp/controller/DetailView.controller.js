@@ -29,7 +29,7 @@ sap.ui.define([
  
  
          _getData:function(){
-            let enititySet = `/MiningDataSet`;
+            let enititySet = `/ZMD_MININGSet`;
             let oModel = this.getOwnerComponent().getModel();
             oModel.read(enititySet, {
                 success: (oData, response) => {

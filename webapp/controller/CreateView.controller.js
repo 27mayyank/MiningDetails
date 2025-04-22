@@ -7,111 +7,71 @@ sap.ui.define([
 
     return Controller.extend("app.mayank55.controller.CreateView", {
         onInit() {
-            // Add event listeners to reset ValueState on input change
-            this.getView().byId("id1").attachChange(this.resetValueState, this);
-            this.getView().byId("id2").attachChange(this.resetValueState, this);
-            this.getView().byId("id3").attachChange(this.resetValueState, this);
-            this.getView().byId("id4").attachChange(this.resetValueState, this);
-            this.getView().byId("id5").attachChange(this.resetValueState, this);
-            this.getView().byId("id6").attachChange(this.resetValueState, this);
-            this.getView().byId("id7").attachChange(this.resetValueState, this);
-        },
-
-        resetValueState: function (oEvent) {
-            oEvent.getSource().setValueState("None");
-        },
-
-        resetAllValueStates: function () {
-            this.getView().byId("id1").setValueState("None");
-            this.getView().byId("id2").setValueState("None");
-            this.getView().byId("id3").setValueState("None");
-            this.getView().byId("id4").setValueState("None");
-            this.getView().byId("id5").setValueState("None");
-            this.getView().byId("id6").setValueState("None");
-            this.getView().byId("id7").setValueState("None");
-        },
-
-        clearAllFields: function () {
-            this.getView().byId("id1").setValue("");
-            this.getView().byId("id2").setValue("");
-            this.getView().byId("id3").setValue("");
-            this.getView().byId("id4").setValue("");
-            this.getView().byId("id5").setValue("");
-            this.getView().byId("id6").setValue("");
-            this.getView().byId("id7").setValue("");
         },
 
         onSubmit: function () {
-            // Get values from input fields
-            var sLocID = this.getView().byId("id1");
-            var sLocDes = this.getView().byId("id2");
-            var sMR = this.getView().byId("id3");
-            var sTC = this.getView().byId("id4");
-            var sRP = this.getView().byId("id5");
-            var sND = this.getView().byId("id6");
-            var sTM = this.getView().byId("id7");
-
+            let oView = this.getView();
             let fields = [
-                { id: "id1", value: sLocID.getValue() },
-                { id: "id2", value: sLocDes.getValue() },
-                { id: "id3", value: sMR.getValue() },
-                { id: "id4", value: sTC.getValue() },
-                { id: "id5", value: sRP.getValue() },
-                { id: "id6", value: sND.getValue() },
-                { id: "id7", value: sTM.getValue() }
+                { id: "id1", value: oView.byId("id1").getValue() },
+                { id: "id2", value: oView.byId("id2").getValue() },
+                { id: "id3", value: oView.byId("id3").getValue() },
+                { id: "id4", value: oView.byId("id4").getValue() },
+                { id: "id5", value: oView.byId("id5").getValue() },
+                { id: "id6", value: oView.byId("id6").getValue(), type: "number" },
+                { id: "id7", value: oView.byId("id7").getValue() }
             ];
 
-            let invalidFields = Validator.validateFields(fields);
-            if (invalidFields !== true) {
-                invalidFields.forEach(function (fieldId) {
-                    this.getView().byId(fieldId).setValueState("Error");
-                }.bind(this));
+            let validationResult = Validator.validateFields(fields);
+
+            if (validationResult !== true) {
+                validationResult.forEach(fieldId => {
+                    oView.byId(fieldId).setValueState("Error");
+                });
                 return;
             }
 
-            // Format values
-            sTC.setValue("$" + sTC.getValue());
-            sND.setValue(parseInt(sND.getValue()));
-
-            // Create payload
             let payLoad = {
-                "LocationId": sLocID.getValue(),
-                "LocationDescription": sLocDes.getValue(),
-                "MiningResourceAllocated": sMR.getValue(),
-                "TotalCost": sTC.getValue(),
-                "ReportOfPossibleMineral": sRP.getValue(),
-                "NumberOfDrills": sND.getValue(),
-                "TypeOfMineral": sTM.getValue()
+                "LocationId": fields[0].value,
+                "LocationDescription": fields[1].value,
+                "MiningResourceAllocated": fields[2].value,
+                "TotalCost": fields[3].value,
+                "ReportOfPossibleMineral": fields[4].value,
+                "NumberOfDrills": parseInt(fields[5].value),
+                "TypeOfMineral": fields[6].value
             };
 
-            // Get model and entity
             let oModel = this.getOwnerComponent().getModel();
             let entity = "/ZMD_MININGSet";
             let that = this;
 
-            // Submit data
             oModel.create(entity, payLoad, {
                 success: function (resp) {
                     MessageBox.success("Successfully created an entry", {
-                        onClose: ()=>{
-                            this.clearAllFields();
+                        onClose: function () {
+                            that._clearFields();
                             let oRouter = that.getOwnerComponent().getRouter();
                             oRouter.navTo("RouteMasterView");
                         }
                     });
                 },
                 error: function (error) {
-                    MessageBox.error("Error");
+                    MessageBox.error("Error creating entry: " + error.message);
                 }
             });
         },
 
-        onPressButton: function() {
-            // Reset all ValueStates and clear all fields when the create button is pressed
-            this.resetAllValueStates();
-            this.clearAllFields();
-            let oRouter = this.getOwnerComponent().getRouter();
-            oRouter.navTo("RouteMasterView");
+        onPressButton: function () {
+            this._clearFields();
+            let oRoute = this.getOwnerComponent().getRouter();
+            oRoute.navTo("RouteMasterView");
+        },
+
+        _clearFields: function () {
+            let oView = this.getView();
+            ["id1", "id2", "id3", "id4", "id5", "id6", "id7"].forEach(fieldId => {
+                oView.byId(fieldId).setValue("");
+                oView.byId(fieldId).setValueState("None");
+            });
         }
     });
 });

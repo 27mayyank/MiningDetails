@@ -102,13 +102,13 @@ sap.ui.define([
             let oModel = this.getOwnerComponent().getModel()
             let entity = "/ZMD_MININGSet(LocationId='" + key1 + "',LocationDescription='" + key2 + "',MiningResourceAllocated='" + key3 + "')"
             //"http://zin-blr-srv1:8001/sap/opu/odata/sap/ZAAKA_MININGDETAILS_SRV/MiningDataSet(LocationId='203',LocationDescription='RUBY%20HILLS',MineralResource='SILVER')"
-
+            let that=this
             oModel.remove(entity, {
                 success: (resp) => {
                     MessageBox.success("Deleted Successfully", {
                         onClose: function () {
-                            let oRouter = this.getOwnerComponent().getRouter();
-                            oRouter.navTo("RouteMasterView");
+                            let oRouter = that.getOwnerComponent().getRouter();
+                            oRouter.navTo("RouteMasterView", {}, true);
                         }.bind(this)
                     })
                 },

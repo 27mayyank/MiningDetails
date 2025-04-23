@@ -21,7 +21,7 @@
                                 <ObjectAttribute text="{MiningDataSet>LocationDescription}"></ObjectAttribute>
                                 </ObjectListItem>
                             </VBox>
-                            <Button icon="sap-icon://delete" press="onDeleteItem" type="Reject"/>
+                            <Button icon="sap-icon://delete" press="onDeleteItem" type="Negative"/>
                         </HBox>
                     </CustomListItem>
                 </items>  

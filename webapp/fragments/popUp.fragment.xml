@@ -1,8 +1,10 @@
 <core:FragmentDefinition xmlns:core="sap.ui.core" xmlns="sap.m">
  
-     <SelectDialog title="Mining Resource Allocated" items="{FragModel>/newSupp}" confirm="onConfirmSupp">
+    <SelectDialog title="Location ID" items="{FragmentModel>/newSuppSet}" confirm="onConfirmSupplier">
         <items>
-            <StandardListItem info="{FragModel>MiningResourceAllocated}"></StandardListItem>
+            <StandardListItem info="{FragmentModel>LocationId}" >
+            </StandardListItem>
         </items>
+   
     </SelectDialog>
 </core:FragmentDefinition>

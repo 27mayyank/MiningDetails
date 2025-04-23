@@ -18,9 +18,9 @@
                             <Input id="idLDesc" placeholder="Enter Location Description" liveChange="onSearch"></Input>
                         </comp:control>
                     </comp:FilterItem>
-                     <comp:FilterItem name="Filter" label="Sort Filter">
+                     <comp:FilterItem name="Filter" >
                         <comp:control>
-                            <Button icon="sap-icon://sort" press="onFilter" width="50px"> </Button>
+                            <Button icon="sap-icon://sort" press="onFilter" width="10px"> </Button>
                         </comp:control>
                     </comp:FilterItem>
                 </comp:filterItems>

@@ -12,7 +12,7 @@
                                 <Text text="{MiningDataSet>LocationDescription}"></Text>
                                 <Label text="Mining Resource Allocated"></Label>
                                 <Text text="{MiningDataSet>MiningResourceAllocated}"></Text>
-                                <Label text="Total Cost"></Label>
+                                <Label text="Total Cost (IN USD)"></Label>
                                 <Text text="{MiningDataSet>TotalCost}"></Text>
                                 <Label text="Report Of Possible Mineral"></Label>
                                 <Text text="{MiningDataSet>ReportOfPossibleMineral}"></Text>

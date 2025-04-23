@@ -16,15 +16,15 @@
                 <items>
                     <CustomListItem>
                         <HBox justifyContent="SpaceBetween" alignItems="Center" >
-                            <VBox>
-                                <ObjectListItem intro="{MiningDataSet>LocationId}">
+                            <VBox width="400px">
+                                <ObjectListItem intro="{MiningDataSet>LocationId}" >
                                 <ObjectAttribute text="{MiningDataSet>LocationDescription}"></ObjectAttribute>
                                 </ObjectListItem>
                             </VBox>
                             <Button icon="sap-icon://delete" press="onDeleteItem" type="Reject"/>
                         </HBox>
                     </CustomListItem>
-                </items>
+                </items>  
             </List>
         </content>
         <footer>

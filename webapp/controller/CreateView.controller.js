@@ -34,7 +34,7 @@ sap.ui.define([
                 "LocationId": fields[0].value,
                 "LocationDescription": fields[1].value,
                 "MiningResourceAllocated": fields[2].value,
-                "TotalCost": fields[3].value,
+                "TotalCost":"$" + fields[3].value,
                 "ReportOfPossibleMineral": fields[4].value,
                 "NumberOfDrills": parseInt(fields[5].value),
                 "TypeOfMineral": fields[6].value

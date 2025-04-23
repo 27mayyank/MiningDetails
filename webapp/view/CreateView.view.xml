@@ -10,8 +10,8 @@
             <Input id="id2"></Input>
             <Label text="{i18n>MiningResourceAllocated}" required="true"></Label>
             <Input id="id3"></Input>
-            <Label text="{i18n>TotalCost}" ></Label>
-            <Input id="id4" ></Input>
+            <Label text="{i18n>TotalCost}"  ></Label>
+            <Input id="id4" placeholder="In USD"></Input>
             <Label text="{i18n>ReportOfPossibleMineral}"></Label>
             <Input id="id5"></Input>
             <Label text="{i18n>NumberOfDrills}" ></Label>

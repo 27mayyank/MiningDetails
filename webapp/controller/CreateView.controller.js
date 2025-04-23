@@ -6,8 +6,16 @@ sap.ui.define([
     "use strict";
 
     return Controller.extend("app.mayank55.controller.CreateView", {
+
         onInit() {
+            let oView = this.getView();
+            let fieldIds = ["id1", "id2", "id3", "id4", "id5", "id6", "id7"];
+
+            fieldIds.forEach(fieldId => {
+                oView.byId(fieldId).attachChange(this.onSetNone, this);
+            });
         },
+
 
         onSubmit: function () {
             let oView = this.getView();
@@ -34,7 +42,7 @@ sap.ui.define([
                 "LocationId": fields[0].value,
                 "LocationDescription": fields[1].value,
                 "MiningResourceAllocated": fields[2].value,
-                "TotalCost":"$" + fields[3].value,
+                "TotalCost": "$" + fields[3].value,
                 "ReportOfPossibleMineral": fields[4].value,
                 "NumberOfDrills": parseInt(fields[5].value),
                 "TypeOfMineral": fields[6].value
@@ -72,6 +80,10 @@ sap.ui.define([
                 oView.byId(fieldId).setValue("");
                 oView.byId(fieldId).setValueState("None");
             });
+        },
+
+        onSetNone: function (oEvent) {
+            oEvent.getSource().setValueState("None");
         }
     });
 });

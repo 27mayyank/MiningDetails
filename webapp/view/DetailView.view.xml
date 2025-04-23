@@ -10,7 +10,7 @@
                                 <Text text="{MiningDataSet>LocationId}"></Text>
                                 <Label text="Location Description"></Label>
                                 <Text text="{MiningDataSet>LocationDescription}"></Text>
-                                <Label text="Mining Resource Allocated"></Label>
+                                <Label text="Mining Resource Allocated (Man Power)"></Label>
                                 <Text text="{MiningDataSet>MiningResourceAllocated}"></Text>
                                 <Label text="Total Cost (IN USD)"></Label>
                                 <Text text="{MiningDataSet>TotalCost}"></Text>
@@ -25,7 +25,7 @@
         <footer>
 			<OverflowToolbar>
 				<ToolbarSpacer/>	
-				<Button text="EDIT"  press="onEDIT" type="Attention" icon="sap-icon://edit"  />
+				<Button text="EDIT" press="onEDIT" type="Attention" icon="sap-icon://edit"  />
 			</OverflowToolbar>
 		</footer>
     </Page>

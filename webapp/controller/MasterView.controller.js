@@ -108,6 +108,7 @@ sap.ui.define([
                     MessageBox.success("Deleted Successfully", {
                         onClose: function () {
                             let oRouter = that.getOwnerComponent().getRouter();
+                            that._getData()
                             oRouter.navTo("RouteMasterView", {}, true);
                         }.bind(this)
                     })
